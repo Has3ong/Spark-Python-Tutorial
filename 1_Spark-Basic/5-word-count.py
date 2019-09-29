@@ -9,7 +9,7 @@ __BASE_DIR__ = os.path.dirname(os.path.realpath(__file__))
 conf = SparkConf().setMaster("local").setAppName("WordCount")
 sc = SparkContext(conf = conf)
 
-input = sc.textFile("file:///sparkcourse/book.txt")
+input = sc.textFile(__BASE_DIR__ + "/Book.txt")
 words = input.flatMap(lambda x: x.split())
 wordCounts = words.countByValue()
 
